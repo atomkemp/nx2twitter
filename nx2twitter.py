@@ -2,6 +2,8 @@
 #Written/Compiled by Adam Kemp (@atomkemp), 2014
 #Licensed under GPLv3 or greater. See LICENSE file for more information.
 #
+#THIS BOT USES SENSITIVE INFORMATION ABOUT YOUR GMAIL AND TWITTER ACCOUNT. KEEP THIS INFORMATION PRIVATE!!!
+#
 #copy, move and delete components adapted from: http://stackoverflow.com/questions/3527933/move-an-email-in-gmail-with-python-and-imaplib
 #parse and download components adapted from: http://stackoverflow.com/questions/348630/how-can-i-download-all-emails-with-attachments-from-gmail
 #Twitter components adapted from: http://www.dototot.com/how-to-write-a-twitter-bot-with-python-and-tweepy/
