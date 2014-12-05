@@ -12,13 +12,14 @@ import imaplib, re, email, os, tweepy, time, datetime
 
 detach_dir = "./tweeted" #set the system folder name for downloaded images
 delay = 0.5 #set time for mail check in minutes
-tweeting = False #set to true to send tweets. good for testing your system and configuration
+tweeting = True #set to true to send tweets. good for testing your system and configuration
 
 pattern_uid = re.compile('\d+ \(UID (?P<uid>\d+)\)')
 
 def setupTwitter():
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+    global api
     api = tweepy.API(auth)
     
 def connect():
@@ -67,7 +68,7 @@ if __name__ == '__main__':
         config.write(ACCESS_KEY + '\n')
         config.write(ACCESS_SECRET + '\n')
         config.close()
-        print "Done!"
+        print "Configuration file created."
     else:
         print "Previous configuration found. Reading file..."
         config = open('config.n2t','r')
@@ -155,6 +156,9 @@ if __name__ == '__main__':
                             api.update_with_media(photo_path,'')
                         else:
                             api.update_with_media(photo_path,message_body)
+                        print "Tweet sent!"
+                    else:
+                        print "Tweeting disabled. Set 'tweeting' var to True to enable"
             else:
                 print "Access DENIED!"
 
